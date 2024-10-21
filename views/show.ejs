@@ -1,0 +1,31 @@
+<%- include('./partials/header') %>
+<div
+  class="w-full px-10 py-3 flex justify-between overflow-hidden bg-zinc-800 text-white"
+>
+  <h3 class="mt-2">SnapPost</h3>
+  <div class="gap-10 flex items-center">
+    <a href="/profile">Profile</a>
+    <a href="/feed">Feed</a>
+    <a href="/logout" class="px-2 py-2 bg-red-700 text-white rounded-md"
+      >Logout</a
+    >
+  </div>
+</div>
+<div class="w-full bg-zinc-800 min-h-screen text-white">
+  <br />
+  <div class="cards flex-wrap flex gap-10 items-center justify-center py-8">
+    <% user.posts.forEach(function(elem) { %>
+    <div class="card w-60 gap-10">
+      <div class="w-60 h-40 bg-sky-200 rounded-lg overflow-hidden">
+        <img
+          src="<%= elem.image %>"
+          class="w-full h-full object-cover"
+          alt=""
+        />
+      </div>
+      <h5 class="mt-2 text-sm"><%= elem.title %></h5>
+    </div>
+    <% })%>
+  </div>
+</div>
+<%- include('./partials/footer') %>
